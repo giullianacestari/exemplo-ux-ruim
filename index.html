@@ -1,269 +1,188 @@
 <!DOCTYPE html>
-<html lang="pt-pt">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fashion Maze - Loja Oficial</title>
+    <title>CYBERSAFE ULTRA-PRO - O SITE MAIS SEGURO DO MUNDO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Fundo branco e alto contraste no corpo, baixo contraste nos elementos de ação */
-        body {
-            background-color: #ffffff;
-            color: #000000;
-            font-family: 'Helvetica', 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
+        /* Removido o efeito de flash de cores */
+        
+        .bad-gradient {
+            background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff0000);
+            background-size: 400% 400%;
+            animation: gradient 5s ease infinite; /* Suavizado para não piscar */
         }
 
-        .container {
-            width: 1000px;
-            margin: 0 auto;
-            position: relative;
-            min-height: 2500px;
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        /* Cabeçalho com baixo contraste e fonte minúscula */
-        header {
-            background: #fdfdfd; /* Quase branco */
-            color: #eeeeee;    /* Quase invisível */
-            padding: 10px 0;
-            text-align: center;
-            border-bottom: 1px solid #f9f9f9;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 5px; /* Fonte minúscula */
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        /* Carrinho com baixo contraste */
-        #cart {
-            position: fixed;
-            top: 5px;
-            right: 5px;
-            background: #fcfcfc;
-            color: #f1f1f1;
-            padding: 3px;
-            font-size: 4px;
-            z-index: 2000;
-            cursor: pointer;
-            border: 1px solid #f9f9f9;
-        }
-
-        nav {
-            background: #ffffff;
-            border-bottom: 1px solid #f4f4f4;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: space-around;
-            list-style: none;
-            padding: 5px 0;
-            margin: 0;
-        }
-
-        /* Links de navegação quase invisíveis */
-        nav a {
-            color: #f0f0f0;
-            text-decoration: none;
-            font-weight: normal;
-            font-size: 6px;
-            text-transform: lowercase;
-        }
-
-        .product-area {
-            position: relative;
-            margin-top: 50px;
-        }
-
-        .product-card {
-            width: 400px;
-            border: 2px solid #000;
-            background: #fff;
-            position: absolute;
-            padding: 0;
-            transition: all 0.2s;
-        }
-
-        .product-card:hover {
-            z-index: 500;
-            box-shadow: 20px 20px 0px #ffff00;
-        }
-
-        .product-image {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .product-details {
-            padding: 20px;
-            border-top: 2px solid #000;
-        }
-
-        .product-name {
-            font-size: 22px;
-            font-weight: bold;
-            margin: 0 0 10px 0;
-        }
-
-        .product-price {
-            font-size: 30px;
-            font-weight: 900;
-            display: block;
-            margin-bottom: 15px;
-        }
-
-        /* Botões com baixíssimo contraste e fonte minúscula */
-        .buy-button {
-            display: block;
-            width: 100%;
-            background: #fdfdfd;
-            color: #efefef;
-            text-align: center;
-            padding: 5px 0;
-            border: 1px solid #f9f9f9;
-            cursor: pointer;
-            font-size: 4px; /* Quase ilegível */
-            text-transform: uppercase;
-        }
-
-        .scrolling-banner {
-            background: #ffff00;
-            color: #000;
-            padding: 10px;
-            font-weight: bold;
+        .marquee-text {
             white-space: nowrap;
             overflow: hidden;
-            border: 2px solid #000;
-            margin: 20px 0;
-            font-size: 10px;
+            display: inline-block;
+            animation: marquee 15s linear infinite;
         }
 
-        footer {
-            background: #000;
-            color: #fff;
-            padding: 80px 0;
-            text-align: center;
-            margin-top: 2000px;
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
         }
 
-        .floating-label {
-            position: absolute;
-            background: #000;
-            color: #fff;
-            padding: 5px 10px;
-            font-size: 10px;
-            z-index: 10;
+        .confusing-cursor:hover {
+            cursor: wait;
         }
 
+        .moving-button {
+            transition: all 0.1s;
+        }
+
+        /* Removida a classe blinking (que piscava o texto) */
+
+        .scroll-text {
+            height: 50px;
+            overflow: scroll;
+            border: 5px inset yellow;
+            background: black;
+            color: lime;
+            font-family: "Courier New", Courier, monospace;
+        }
     </style>
 </head>
-<body>
+<body class="bg-black text-white font-serif confusing-cursor">
 
-<header>
-    <h1>fashion maze luxury - archive system v.0.1</h1>
-</header>
-
-<div id="cart">carrinho_vazio_null</div>
-
-<nav>
-    <ul>
-        <li><a href="#">catálogo_geral</a></li>
-        <li><a href="#">inverno_24</a></li>
-        <li><a href="#">limited_drops</a></li>
-        <li><a href="#">sobre_a_grife</a></li>
-    </ul>
-</nav>
-
-<div class="scrolling-banner">
-    AVISO: SE OS BOTÕES PARECEREM VAZIOS, É PORQUE A SUA SESSÃO ESTÁ EM MODO DE ECONOMIA DE ENERGIA VISUAL.
-</div>
-
-<div class="container">
-    
-    <div class="product-area">
-        
-        <!-- Produto 1 -->
-        <div class="product-card" style="top: 20px; left: 0;">
-            <div class="floating-label">MAIS VENDIDO</div>
-            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&q=80&w=800" alt="[Imagem de Camisa Branca]" class="product-image">
-            <div class="product-details">
-                <p class="product-name">Camisa Algodão Egípcio</p>
-                <span class="product-price">R$ 349,00</span>
-                <button class="buy-button" onclick="handleBuy(this)">adicionar_ao_lote_invisivel</button>
-            </div>
+    <!-- Header Irritante -->
+    <header class="bad-gradient p-1 text-center border-b-8 border-yellow-400">
+        <h1 class="text-4xl font-black italic tracking-widest text-black uppercase">CyberSafe Ultra-Pro v9.0</h1>
+        <div class="bg-red-600 text-white font-bold py-1">
+            ⚠️ ALERTA: SUA CONEXÃO É 99% SEGURA. QUER 100%? CLIQUE AQUI! ⚠️
         </div>
+    </header>
 
-        <!-- Produto 2 -->
-        <div class="product-card" style="top: 150px; left: 450px;">
-            <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&q=80&w=800" alt="[Imagem de Calça Preta]" class="product-image">
-            <div class="product-details">
-                <p class="product-name">Calça de Alfaiataria</p>
-                <span class="product-price">R$ 580,00</span>
-                <button class="buy-button" onclick="handleBuy(this)">adicionar_ao_lote_invisivel</button>
+    <div class="flex flex-col md:flex-row">
+        <!-- Sidebar que ocupa espaço mas tem pouco conteúdo -->
+        <nav class="w-full md:w-1/6 bg-blue-900 p-4 border-r-4 border-lime-500 text-xs">
+            <h2 class="underline mb-4">MENU DE SEGURANÇA PROFUNDA</h2>
+            <ul class="space-y-8">
+                <li><a href="#" class="hover:bg-yellow-400 hover:text-black block p-2">INÍCIO (CRIPTOGRAFADO)</a></li>
+                <li><a href="#" class="hover:bg-yellow-400 hover:text-black block p-2">SOBRE NÓS (SÓ PARA MEMBROS)</a></li>
+                <li><a href="#" class="hover:bg-yellow-400 hover:text-black block p-2">PRODUTOS (NÃO CLIQUE)</a></li>
+                <li><a href="#" class="hover:bg-yellow-400 hover:text-black block p-2">CONTATO (VIA FAX APENAS)</a></li>
+            </ul>
+            <div class="mt-20">
+                <img src="https://via.placeholder.com/100x300?text=AD+AQUI+AD+AQUI" alt="Anúncio Estático">
             </div>
-        </div>
+        </nav>
 
-        <!-- Produto 3 -->
-        <div class="product-card" style="top: 800px; left: 100px;">
-            <img src="https://images.unsplash.com/photo-1539533377285-3412704e5a41?auto=format&fit=crop&q=80&w=800" alt="[Imagem de Casaco]" class="product-image">
-            <div class="product-details">
-                <p class="product-name">Sobretudo de Lã</p>
-                <span class="product-price">R$ 1.890,00</span>
-                <button class="buy-button" onclick="handleBuy(this)">adicionar_ao_lote_invisivel</button>
+        <!-- Conteúdo Principal -->
+        <main class="flex-1 p-10 bg-gray-900 border-8 border-double border-red-500">
+            
+            <section class="mb-10 text-center">
+                <h2 class="text-6xl text-yellow-300 font-extrabold mb-4 shadow-lg">BEM-VINDO À FORTALEZA DIGITAL</h2>
+                <div class="scroll-text mb-4">
+                    ESTE SITE UTILIZA COOKIES DE SEGURANÇA, COOKIES DE RASTREAMENTO, COOKIES DE TERCEIROS, COOKIES DE QUARTOS, COOKIES DE QUINTOS... [ROLE ATÉ O FIM PARA ACEITAR]
+                </div>
+                <button id="mainBtn" class="bg-green-600 text-white p-6 rounded-full border-4 border-white font-bold hover:scale-110 active:bg-black">
+                    VERIFICAR MEU PC AGORA!
+                </button>
+            </section>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-1">
+                <div class="bg-purple-800 p-4 border-4 border-dotted border-white">
+                    <h3 class="text-xl underline">Dica #1: Senhas</h3>
+                    <p class="text-[10px] mt-2 leading-tight">Para sua segurança, use senhas com no mínimo 128 caracteres, incluindo hieróglifos egípcios e sons de animais gravados em formato .wav comprimido.</p>
+                </div>
+                <div class="bg-orange-600 p-4 border-4 border-dotted border-white">
+                    <h3 class="text-xl underline">Dica #2: Firewall</h3>
+                    <p class="text-[10px] mt-2 leading-tight">Desligue o seu monitor quando não estiver usando a internet. Hackers não podem ver o que você não vê.</p>
+                </div>
+                <div class="bg-pink-600 p-4 border-4 border-dotted border-white">
+                    <h3 class="text-xl underline">Dica #3: Phishing</h3>
+                    <p class="text-[10px] mt-2 leading-tight">Nunca responda e-mails. Se alguém te ama de verdade, enviará um pombo-correio criptografado com chave RSA física.</p>
+                </div>
             </div>
-        </div>
 
-        <!-- Produto 4 -->
-        <div class="product-card" style="top: 400px; left: 850px; width: 200px;">
-            <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&q=80&w=400" alt="[Imagem de T-shirt]" class="product-image" style="height: 200px;">
-            <div class="product-details">
-                <p class="product-name" style="font-size: 14px;">T-Shirt Básica</p>
-                <span class="product-price" style="font-size: 18px;">R$ 120,00</span>
-                <button class="buy-button" style="padding: 2px;" onclick="handleBuy(this)">comprar_tiny</button>
+            <!-- Formulário de Assinatura Terrível -->
+            <div class="mt-12 bg-white text-black p-4 border-t-8 border-black">
+                <h4 class="font-black text-center">ASSINE NOSSA NEWSLETTER (15x por dia)</h4>
+                <div class="flex flex-col gap-2 mt-4">
+                    <input type="text" placeholder="Seu nome completo (com CPF)" class="border-4 border-blue-500 p-2">
+                    <input type="email" placeholder="E-mail (obrigatório)" class="border-4 border-blue-500 p-2">
+                    <label class="text-[8px]"><input type="checkbox"> Eu aceito vender minha alma e todos os meus dados para fins de "marketing seguro".</label>
+                    <button id="fleeingBtn" class="moving-button bg-red-600 text-white font-bold py-4">ENVIAR AGORA!</button>
+                </div>
             </div>
-        </div>
+        </main>
 
+        <!-- Widgets de "Segurança" -->
+        <aside class="w-full md:w-1/4 p-4 bg-green-900 border-l-4 border-yellow-500">
+            <div class="bg-black p-2 border border-white mb-4">
+                <p class="text-xs text-lime-400">STATUS DO SCAN:</p>
+                <div class="w-full bg-gray-700 h-4 mt-1">
+                    <div class="bg-lime-500 h-4" style="width: 42%;"></div>
+                </div>
+                <p class="text-[8px] mt-1 italic">Detectando 1.432 ameaças imaginárias...</p>
+            </div>
+
+            <!-- Alterado para cor sólida sem piscar -->
+            <div class="bg-red-700 p-4 text-center text-white font-bold text-sm border-4 border-yellow-200">
+                ESTÁ SENDO HACKEADO?<br>COMPRE NOSSO ANTIVÍRUS AGORA!
+            </div>
+
+            <div class="mt-8 text-[10px] text-justify leading-none overflow-y-scroll h-64 bg-gray-800 p-2">
+                <p>Termos de Uso Legais (v9.1): Ao entrar neste site, você concorda que: 1. A cor de fundo pode causar fadiga ocular. 2. A segurança é uma ilusão. 3. Este site não se responsabiliza por botões que fogem do mouse. 4. Todo o conteúdo é meramente ilustrativo para fins de sofrimento de UX. 5. Você não deve usar as senhas sugeridas aqui. 6. O botão de fechar pop-up na verdade abre três outros pop-ups. 7. O autor deste site gosta de causar caos visual. 8. A criptografia usada é baseada em "confia no pai". 9. Não tente ler este texto até o fim porque ele se repete infinitamente para ocupar espaço e tempo de processamento do seu cérebro orgânico.</p>
+            </div>
+        </aside>
     </div>
 
-</div>
+    <footer class="bg-yellow-400 text-black p-2 text-center text-xs font-mono uppercase">
+        <div class="marquee-text">
+            Selo de Qualidade 1998 — Desenvolvido por: Gênio Incompreendido da UX — Melhor visualizado em Internet Explorer 6 com resolução 640x480 — CUIDADO COM O VÍRUS DO MILÊNIO!
+        </div>
+    </footer>
 
-<footer>
-    <p>&copy; 2024 Fashion Maze Luxury - Alta Costura e Baixa Usabilidade</p>
-</footer>
+    <!-- Pop-up Irritante -->
+    <div id="popup" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center hidden z-50">
+        <div class="bg-white p-10 border-8 border-red-600 max-w-sm text-center">
+            <h2 class="text-black text-2xl font-black mb-4">VOCÊ GANHOU UM FIREWALL GRÁTIS!</h2>
+            <p class="text-gray-700 text-sm mb-6">Para resgatar, digite o número do seu cartão de crédito (apenas para verificação de idade e segurança biométrica remota).</p>
+            <div class="flex gap-2 justify-center">
+                <button onclick="closePopup()" class="bg-gray-400 text-white px-4 py-2 hover:bg-black">FECHAR (X)</button>
+                <button class="bg-green-500 text-white px-4 py-2 font-bold transform hover:rotate-12 transition-transform">RESGATAR!</button>
+            </div>
+        </div>
+    </div>
 
-<script>
-    document.addEventListener('contextmenu', e => e.preventDefault());
+    <script>
+        // Faz o botão de enviar fugir do mouse (UX Terrível mantida)
+        const fleeBtn = document.getElementById('fleeingBtn');
+        fleeBtn.addEventListener('mouseover', () => {
+            const x = Math.random() * 60 - 30;
+            const y = Math.random() * 60 - 30;
+            fleeBtn.style.transform = `translate(${x}px, ${y}px)`;
+        });
 
-    let clickCount = 0;
-    function handleBuy(btn) {
-        clickCount++;
-        if (clickCount < 3) {
-            btn.innerText = "...";
-            setTimeout(() => { btn.innerText = "erro_null"; }, 1000);
-        } else {
-            alert("Sucesso! Item adicionado ao buffer de memória.");
-            clickCount = 0;
-            btn.innerText = "adicionar_ao_lote_invisivel";
+        // Mostra o pop-up após 2 segundos
+        setTimeout(() => {
+            document.getElementById('popup').classList.remove('hidden');
+        }, 2000);
+
+        function closePopup() {
+            document.getElementById('popup').classList.add('hidden');
+            // Alerta simples sem loops infinitos
+            setTimeout(() => {
+                alert("Atenção: A sua segurança pode estar em risco por fechar este pop-up!");
+            }, 300;
         }
-    }
 
-    const cart = document.getElementById('cart');
-    cart.addEventListener('mouseover', () => {
-        if (Math.random() > 0.3) {
-            cart.style.top = Math.random() * 90 + 'vh';
-            cart.style.right = Math.random() * 90 + 'vw';
-        }
-    });
-</script>
-
+        // Cursor confuso continua, mas troca mais devagar
+        const cursors = ['wait', 'help', 'crosshair', 'not-allowed', 'zoom-in'];
+        setInterval(() => {
+            document.body.style.cursor = cursors[Math.floor(Math.random() * cursors.length)];
+        }, 5000);
+    </script>
 </body>
 </html>
